@@ -21,7 +21,7 @@ def valid_single_measurement():
 
 
 class TestArmCare:
-    def test_armcare(self, valid_bilateral_measurement):
+    def test_armcare_valid(self, valid_bilateral_measurement):
         """Test constructor for armcare"""
 
         arm_care = ArmCare(
@@ -45,3 +45,8 @@ class TestArmCare:
         assert arm_care.supine_hip_ir.left == 9.0
         assert arm_care.straight_leg_raise.right == 10.0
         assert arm_care.straight_leg_raise.left == 9.0
+
+
+class TestMotorPreference:
+    def test_motor_preference(self):
+        pass
