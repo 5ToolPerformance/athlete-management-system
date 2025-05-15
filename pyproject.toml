@@ -14,6 +14,7 @@ dependencies = [
     "openpyxl>=3.1.5",
     "pandas>=2.2.3",
     "pydantic>=2.11.4",
+    "pytest>=8.3.5",
     "typer>=0.15.4",
 ]
 
@@ -22,3 +23,8 @@ athletic-perf = "athletic_performance.cli.app:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/athletic_performance"]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = ["tests"]
+python_files = "test_*.py"
