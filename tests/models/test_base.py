@@ -1,7 +1,12 @@
 import pytest
 from datetime import date
 from pydantic import ValidationError
-from src.app.models.base import BiLateralMeasurement, SingleMeasurement, Assessment
+from src.app.models.base import (
+    BiLateralMeasurement,
+    SingleMeasurement,
+    BaseAssessment,
+    BaseLesson,
+)
 
 
 class TestBaseMeasurements:
@@ -38,22 +43,28 @@ class TestAssessment:
     def test_assessment_valid(self):
         """Test for a valid assessment"""
 
-        d = date(2025, 5, 15)
-        assessment = Assessment(created_on=d, notes="These are notes")
-        assert assessment.created_on == d
+        assessment = BaseAssessment(type="test", notes="These are notes")
         assert assessment.notes == "These are notes"
+        assert assessment.type == "test"
 
     def test_assessment_string_valid(self):
         """Test for a valid string date"""
 
-        d = "2025-05-15"
-        assessment = Assessment(created_on=d)
-        assert assessment.created_on == date(2025, 5, 15)
+        assessment = BaseAssessment(type="test")
+        assert assessment.type == "test"
 
     def test_assessment_invalid(self):
         """Test for invalid assessment"""
 
         with pytest.raises(ValidationError):
-            Assessment(created_on=100, notes="Notes")
+            BaseAssessment(created_on=100, notes="Notes")
         with pytest.raises(ValidationError):
-            Assessment(created_on=date.today, notes=1000)
+            BaseAssessment(created_on=date.today, notes=1000)
+
+    def test_lesson_valid(self):
+        """Test for valid Base lesson"""
+
+        d = "2025-05-15"
+        lesson = BaseLesson(domain="test", created_on=d)
+        assert lesson.domain == "test"
+        assert lesson.created_on == date(2025, 5, 15)

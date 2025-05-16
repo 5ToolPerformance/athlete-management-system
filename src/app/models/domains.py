@@ -9,7 +9,9 @@ from .assessments import ArmCare, SMFA, HawkinsForcePlate, TrueStrength
 class AthleticDevelopment(BaseLesson):
     """Strength and Conditioning Assessment"""
 
-    domain: Literal["athletic_development"]
+    domain: Literal["athletic_development"] = Field(
+        "athletic_development", description=""
+    )
     created_on: date = Field(..., description="Date of lesson")
     arm_care: ArmCare = Field(..., description="")
     smfa: SMFA = Field(..., description="")
