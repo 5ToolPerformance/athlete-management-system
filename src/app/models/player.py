@@ -1,10 +1,10 @@
 from datetime import date
 from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import List
 from uuid import UUID, uuid4
 
 from .assessments import MotorPreference
-from .domains import StrengthAndConditioning
+from .domains import LessonType
 from .enums import Position, right_left
 
 
@@ -21,9 +21,7 @@ class Player(BaseModel):
     hits: right_left = Field("Right", description="")
     throws: right_left = Field("Right", description="")
     motor_preference: MotorPreference = Field(..., description="")
-    strength_and_conditioning: List[StrengthAndConditioning] = Field(
-        default_factory=list
-    )
+    lessons: List[LessonType] = Field(..., description="")
 
     @property
     def full_name(self) -> str:
@@ -39,11 +37,3 @@ class Player(BaseModel):
             - self.dob.year
             - ((today.month, today.day) < (self.dob.month, self.dob.day))
         )
-
-    @property
-    def latest_strength_assessment(self) -> Optional[StrengthAndConditioning]:
-        if not self.strength_and_conditioning:
-            return None
-        return sorted(
-            self.strength_and_conditioning, key=lambda x: x.created_on, reverse=True
-        )[0]

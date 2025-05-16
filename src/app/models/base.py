@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import date
+from abc import ABC
 
 
 class SingleMeasurement(BaseModel):
@@ -21,6 +22,16 @@ class BiLateralMeasurement(BaseModel):
         return (1 - (min_value / max_value)) * 100
 
 
-class Assessment(BaseModel):
-    created_on: date = Field(..., description="Date that the assessment was performed")
-    notes: Optional[str] = Field(None, description="Notes about the assessment")
+class BaseLesson(BaseModel, ABC):
+    domain: str = Field(
+        ..., description="The topic of the lesson (AD, Pitching, Hitting, etc.)"
+    )
+    created_on: date = Field(..., description="Date that the lesson was performed")
+    notes: Optional[str] = Field(None, description="Notes about the lesson")
+
+
+class BaseAssessment(BaseModel, ABC):
+    type: str = Field(..., description="The assessment being done")
+    notes: Optional[str] = Field(
+        None, description="Specific notes about the assessment"
+    )

@@ -1,11 +1,13 @@
 from .base import BiLateralMeasurement, SingleMeasurement
 from .enums import archetypes, breath, association, right_left
 from pydantic import BaseModel, Field
+from typing import Literal
 
 
 class ArmCare(BaseModel):
     """ArmCare assessment"""
 
+    type: Literal["arm_care"]
     shoulder_ir: BiLateralMeasurement = Field(
         ..., description="Shoulder IR measurement"
     )
@@ -29,6 +31,7 @@ class ArmCare(BaseModel):
 class MotorPreference(BaseModel):
     """Motor Preference assessment"""
 
+    type: Literal["motor_preferences"]
     archetype: archetypes = Field(..., description="")
     extension_leg: right_left = Field(..., description="")
     breath_type: breath = Field(..., description="")
@@ -38,6 +41,7 @@ class MotorPreference(BaseModel):
 class SMFA(BaseModel):
     """SMFA"""
 
+    type: Literal["smfa"]
     pelvic_rotation: BiLateralMeasurement = Field(..., description="")
     seated_trunk_rotation: BiLateralMeasurement = Field(..., description="")
     ankle_test: BiLateralMeasurement = Field(..., description="")
@@ -55,6 +59,7 @@ class SMFA(BaseModel):
 class HawkinsForcePlate(BaseModel):
     """Hawkins Force Plate Assessment"""
 
+    type: Literal["hawkins_force_plate"]
     cmj: SingleMeasurement = Field(..., description="")
     drop_jump: SingleMeasurement = Field(..., description="")
     pogo: SingleMeasurement = Field(..., description="")
@@ -67,6 +72,7 @@ class HawkinsForcePlate(BaseModel):
 class TrueStrength(BaseModel):
     """True Strength Assessment"""
 
+    type: Literal["true_strength"]
     seated_shoulder_er: BiLateralMeasurement = Field(..., description="")
     seated_shoulder_ir: BiLateralMeasurement = Field(..., description="")
     shoulder_rotation: BiLateralMeasurement = Field(..., description="")
