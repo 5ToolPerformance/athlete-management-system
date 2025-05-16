@@ -1,0 +1,126 @@
+{
+    "created_on": "2025-05-16",
+    "arm_care": {
+        "shoulder_ir": {
+            "left": 60,
+            "right": 55
+        },
+        "shoulder_er": {
+            "left": 90,
+            "right": 88
+        },
+        "shoulder_flexion": {
+            "left": 170,
+            "right": 172
+        },
+        "supine_hip_ir": {
+            "left": 40,
+            "right": 42
+        },
+        "supine_hip_er": {
+            "left": 45,
+            "right": 43
+        },
+        "straight_leg_raise": {
+            "left": 80,
+            "right": 78
+        }
+    },
+    "smfa": {
+        "pelvic_rotation": {
+            "left": 12,
+            "right": 13
+        },
+        "seated_trunk_rotation": {
+            "left": 70,
+            "right": 72
+        },
+        "ankle_test": {
+            "left": 10,
+            "right": 11
+        },
+        "forearm_test": {
+            "left": 8,
+            "right": 9
+        },
+        "cervical_rotation": {
+            "left": 60,
+            "right": 62
+        },
+        "msf": {
+            "left": 15,
+            "right": 14
+        },
+        "mse": {
+            "left": 13,
+            "right": 12
+        },
+        "msr": {
+            "left": 16,
+            "right": 15
+        },
+        "squat": {
+            "value": 1
+        },
+        "plevic_tilt_test": {
+            "value": 1
+        },
+        "cervical_flexion": {
+            "value": 1
+        },
+        "cervical_extension": {
+            "value": 1
+        }
+    },
+    "hawkins_assessment": {
+        "cmj": {
+            "value": 25
+        },
+        "drop_jump": {
+            "value": 22
+        },
+        "pogo": {
+            "value": 20
+        },
+        "mid_thigh_pull": {
+            "value": 300
+        },
+        "mtp_time": {
+            "value": 0.5
+        },
+        "cop_ml": {
+            "left": 0.4,
+            "right": 0.5
+        },
+        "cop_ap": {
+            "left": 0.6,
+            "right": 0.7
+        }
+    },
+    "true_strength": {
+        "seated_shoulder_er": {
+            "left": 55,
+            "right": 60
+        },
+        "seated_shoulder_ir": {
+            "left": 65,
+            "right": 70
+        },
+        "shoulder_rotation": {
+            "left": 30,
+            "right": 35
+        },
+        "shoulder_rotation_rfd": {
+            "left": 500,
+            "right": 520
+        },
+        "hip_rotation": {
+            "left": 40,
+            "right": 45
+        },
+        "hip_rotation_rfd": {
+            "left": 600,
+            "right": 620
+        }
+    }
+}
