@@ -1,0 +1,15 @@
+[
+    {
+        "first_name": "Justin",
+        "last_name": "Nappi",
+        "dob": "2002-02-05",
+        "position": "1B",
+        "height": 72.0,
+        "weight": 185.0,
+        "hits": "Right",
+        "throws": "Right",
+        "id": "925bd63a-99e4-4726-b5e8-e81c72ced55e",
+        "full_name": "<property object at 0x0000026865ADAB60>",
+        "age": "<property object at 0x0000026865ADA930>"
+    }
+]

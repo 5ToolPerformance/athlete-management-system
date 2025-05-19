@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "5toolperformace"
@@ -19,10 +19,11 @@ dependencies = [
 ]
 
 [project.scripts]
-athletic-perf = "athletic_performance.cli.app:main"
+start = "app.main:main_function"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/athletic_performance"]
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["app"]
 
 [tool.pytest.ini_options]
 pythonpath = "."

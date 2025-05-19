@@ -1,6 +1,6 @@
 from typing import List, Optional
 from uuid import UUID
-from src.app.models.player import PlayerResponse
+from app.models.player import PlayerResponse
 
 
 class PlayerRepository:

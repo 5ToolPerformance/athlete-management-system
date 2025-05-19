@@ -1,6 +1,6 @@
 from uuid import UUID, uuid4
-from src.app.models.player import PlayerCreate, PlayerResponse
-from src.app.db.player_repository import PlayerRepository
+from app.models.player import PlayerCreate, PlayerResponse
+from app.db.player_repository import PlayerRepository
 from typing import List
 
 
@@ -9,7 +9,7 @@ class PlayerService:
         self._repository = repository
 
     def create_player(self, player_data: PlayerCreate) -> PlayerResponse:
-        new_player = PlayerCreate(
+        new_player = PlayerResponse(
             id=uuid4(),
             first_name=player_data.first_name,
             last_name=player_data.last_name,
