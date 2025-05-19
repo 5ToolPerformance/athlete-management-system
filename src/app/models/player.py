@@ -4,7 +4,7 @@ from typing import List
 from uuid import UUID, uuid4
 
 from .assessments import MotorPreference
-from .domains import LessonType
+from .domains import AthleticDevelopment
 from .enums import Position, right_left
 
 
@@ -21,7 +21,7 @@ class Player(BaseModel):
     hits: right_left = Field("Right", description="")
     throws: right_left = Field("Right", description="")
     motor_preference: MotorPreference = Field(..., description="")
-    lessons: List[LessonType] = Field(..., description="")
+    athletic_development: AthleticDevelopment = Field(..., description="")
 
     @property
     def full_name(self) -> str:
