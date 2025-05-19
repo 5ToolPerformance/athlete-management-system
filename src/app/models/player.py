@@ -1,17 +1,13 @@
 from datetime import date
 from pydantic import BaseModel, Field
-from typing import List
-from uuid import UUID, uuid4
+from uuid import UUID
 
-from .assessments import MotorPreference
-from .domains import AthleticDevelopment
 from .enums import Position, right_left
 
 
-class Player(BaseModel):
+class PlayerBase(BaseModel):
     """Player class"""
 
-    id: UUID = Field(default_factory=uuid4)
     first_name: str = Field(..., description="")
     last_name: str = Field(..., description="")
     dob: date = Field(..., description="")
@@ -20,8 +16,16 @@ class Player(BaseModel):
     weight: float = Field(..., description="")
     hits: right_left = Field("Right", description="")
     throws: right_left = Field("Right", description="")
-    motor_preference: MotorPreference = Field(..., description="")
-    athletic_development: AthleticDevelopment = Field(..., description="")
+
+
+class PlayerCreate(PlayerBase):
+    pass
+
+
+class PlayerResponse(PlayerBase):
+    id: UUID
+    full_name: str
+    age: int
 
     @property
     def full_name(self) -> str:
